@@ -4,24 +4,23 @@ namespace RandomPasswordGeneratorus
 {
     class Program
     {
-        static void Main()
+        static void Main( string[] args)
         {
-            
-            string s = "noe";
-            while (!string.IsNullOrWhiteSpace(s))
+            if (!IsValid(args))
             {
-                s = Console.ReadLine();
-                Console.WriteLine("PasswordGenerator \n Options: \n -l = lower case letter \n - L = upper case letter \n - d = digit \n - s = special character(!\"#¤%&/(){}[] \n Example: PasswordGenerator 14 lLssdd \n Min. 1 lower case \n Min. 1 upper case \n Min. 2 special characters \n Min. 2 digits");
+                ShowHelp();
+                return;
+            }
 
-                foreach (var c in s)
-                {
-                    
-                }
+            var length = Convert.ToInt32(args[0]);
+            var options = args[1];
 
-                if (s.Length == 2) {
-                }
+            var alltogether = options.PadLeft(length, 's');
+            var password = string.Empty;
+            while (alltogether.Length > 0)
+            {
+                var randomIndex = Random.Next(0, alltogether.Length - 1);
 
-                if (s.Contains(int))
             }
         }
     }
