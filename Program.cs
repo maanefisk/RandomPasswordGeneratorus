@@ -8,6 +8,10 @@ namespace RandomPasswordGeneratorus
         static readonly Random Random = new Random();
         static void Main( string[] args)
         {
+            string args1 = Console.ReadLine();
+            string args2 = Console.ReadLine();
+            args = new[] {args1, args2};
+
             if (!IsValid(args))
             {
                 ShowHelp();
@@ -19,6 +23,8 @@ namespace RandomPasswordGeneratorus
 
             var alltogether = options.PadRight(length, 'd');
             var password = string.Empty;
+
+            
             while (alltogether.Length > 0)
             {
                 var randomIndex = Random.Next(0, alltogether.Length - 1);
